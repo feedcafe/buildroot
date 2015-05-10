@@ -177,6 +177,7 @@ BR2_PACKAGE_PULSEAUDIO_DAEMON=y
 # Debugging, profiling and benchmark
 #
 BR2_PACKAGE_GOOGLE_BREAKPAD_ARCH_SUPPORTS=y
+BR2_PACKAGE_STRACE=y
 
 #
 # Development tools
