@@ -4,4 +4,7 @@ make mini2440_defconfig
 # trigger hidd build
 touch output/build/hidd-1.0/.stamp_built
 
+# trigger adbd build
+touch output/build/adbd-1.0/.stamp_built
+
 make

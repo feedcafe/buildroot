@@ -236,6 +236,7 @@ BR2_PACKAGE_READLINE=y
 # Miscellaneous
 #
 BR2_PACKAGE_HIDD=y
+BR2_PACKAGE_ADBD=y
 
 #
 # Networking applications

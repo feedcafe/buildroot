@@ -1,0 +1,7 @@
+config BR2_PACKAGE_ADBD
+	bool "adb daemon"
+	help
+	  adb daemon is android debug bridge for developers, adb 
+	  daemon also implements user space driver through functionfs
+
+	  ftp://192.168.1.101/adbd

@@ -1006,6 +1006,7 @@ menu "Miscellaneous"
 	source "package/sound-theme-borealis/Config.in"
 	source "package/sound-theme-freedesktop/Config.in"
 	source "package/hidd/Config.in"
+	source "package/adbd/Config.in"
 endmenu
 
 menu "Networking applications"
