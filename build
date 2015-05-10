@@ -7,4 +7,9 @@ touch output/build/hidd-1.0/.stamp_built
 # trigger adbd build
 touch output/build/adbd-1.0/.stamp_built
 
+# trigger kernel module build
+touch output/build/linux-custom/.stamp_configured
+
 make
+
+# fastboot boot output/images/uImage
