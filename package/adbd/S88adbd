@@ -1,0 +1,48 @@
+#!/bin/sh
+# Sanity checks.
+[ -x /usr/bin/adbd ] || exit 0
+
+RETVAL=0
+
+start() {
+    echo -n "Starting adb daemon: "
+    modprobe libcomposite
+    modprobe usb_f_fs
+    modprobe g_ffs idVendor=0x18D1 iSerialNumber="20150412"
+
+    mkdir -p /dev/usb-ffs/adb
+    mount -t functionfs adb /dev/usb-ffs/adb -o uid=2000,gid=2000
+    adbd &
+    RETVAL=$?
+    echo "done"
+}
+
+stop() {
+    echo -n "Stopping adb daemon: "
+    rmmod g_ffs
+    rmmod usb_f_fs
+    rmmod libcomposite
+    killall adbd
+}
+
+# See how we were called.
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $processname
+        RETVAL=$?
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|status|restart}"
+        ;;
+esac
+exit $RETVAL
